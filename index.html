@@ -14,19 +14,52 @@
         <link rel="stylesheet" href="indexstyle.css" />
         <title>Document</title>
     </head>
+
     <body>
         <header>
             <div class="navbar">
-                <div class="logo"><a href="#">Test</a></div>
+                <div class="logo">
+                    <a href="#">Test</a>
+                </div>
                 <ul class="links">
                     <li><a href="#"> Test </a></li>
                     <li><a href="#"> Test2 </a></li>
                 </ul>
-                <a href="login.html" class="action_btn">Sign In/Sign Up</a>
-                <div class="toggle_btn">
-                    <i class="fa-solid fa-bars"></i>
+                <div class="auth-actions">
+                    <a href="login.html" class="action_btn">Sign In/Sign Up</a>
+                    <div class="toggle_btn">
+                        <i class="fas fa-bars"></i>
+                    </div>
                 </div>
             </div>
+
+            <div class="dropdown_menu">
+                <ul>
+                    <li><a href="#"> Test </a></li>
+                    <li><a href="#"> Test2 </a></li>
+                    <li>
+                        <a href="login.html" class="action_btn"
+                            >Sign In/Sign Up</a
+                        >
+                    </li>
+                </ul>
+            </div>
         </header>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const toggleBtn = document.querySelector(".toggle_btn");
+                const toggleBtnIcon = document.querySelector(".toggle_btn i");
+                const dropDownMenu = document.querySelector(".dropdown_menu");
+
+                toggleBtn.onclick = function () {
+                    dropDownMenu.classList.toggle("open");
+                    const isOpen = dropDownMenu.classList.contains("open");
+
+                    toggleBtnIcon.className = isOpen
+                        ? "fas fa-times"
+                        : "fas fa-bars";
+                };
+            });
+        </script>
     </body>
 </html>
